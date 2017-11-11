@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>MassTransit.Scheduling.ScheduleBuilder</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>ahjephson@gmail.com</Authors>
+    <Description>Fluent api for creating a MassTransit recurring schedule</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) ahjephson@gmail.com.</Copyright>
+    <PackageTags>MassTransit scheduling fluent schedule builder</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="4.0.0-*" />
+  </ItemGroup>
+
+</Project>
