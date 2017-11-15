@@ -101,5 +101,29 @@ namespace MassTransit.Scheduling.ScheduleBuilder
             scheduleBuilder.SetTimeZoneId(timeZoneId);
             return scheduleBuilder;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scheduleBuilder"></param>
+        /// <param name="scheduleGroup"></param>
+        /// <returns></returns>
+        public static ScheduleBuilder WithScheduleGroup(this ScheduleBuilder scheduleBuilder, string scheduleGroup)
+        {
+            scheduleBuilder.SetScheduleGroup(scheduleGroup);
+            return scheduleBuilder;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scheduleBuilder"></param>
+        /// <param name="misfirePolicy"></param>
+        /// <returns></returns>
+        public static ScheduleBuilder WithMisfirePolicy(this ScheduleBuilder scheduleBuilder, MissedEventPolicy misfirePolicy)
+        {
+            scheduleBuilder.SetMisfirePolicy(misfirePolicy);
+            return scheduleBuilder;
+        }
     }
 }
