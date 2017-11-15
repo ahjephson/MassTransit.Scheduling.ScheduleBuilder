@@ -12,20 +12,20 @@ namespace MassTransit.Scheduling.ScheduleBuilder
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="description"></param>
+        /// <param name="scheduleId"></param>
         /// <returns></returns>
-        public static ScheduleBuilder Create(string description = null)
+        public static ScheduleBuilder Create(string scheduleId = null)
         {
-            return new ScheduleBuilder(description);
+            return new ScheduleBuilder(scheduleId);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="description"></param>
-        public ScheduleBuilder(string description = null)
+        /// <param name="scheduleId"></param>
+        public ScheduleBuilder(string scheduleId = null)
         {
-            _schedule = new InternalSchedule(description);
+            _schedule = new InternalSchedule(scheduleId);
         }
 
         private class InternalSchedule : RecurringSchedule
@@ -33,25 +33,19 @@ namespace MassTransit.Scheduling.ScheduleBuilder
             public string TimeZoneId { get; internal set; }
             public DateTimeOffset StartTime { get; internal set; }
             public DateTimeOffset? EndTime { get; internal set; }
-            public string ScheduleId { get; internal set; }
+            public string ScheduleId { get; }
             public string ScheduleGroup { get; internal set; }
             public string CronExpression { get; internal set; }
             public string Description { get; internal set; }
             public MissedEventPolicy MisfirePolicy { get; internal set; }
 
-            public InternalSchedule()
+            public InternalSchedule(string scheduleId)
             {
-            }
-
-            public InternalSchedule(string description)
-            {
-                Description = description;
+                ScheduleId = scheduleId;
             }
         }
 
         internal void SetCronExpression(string cron) => _schedule.CronExpression = cron;
-
-        internal void SetScheduleId(string scheduleId) => _schedule.ScheduleId = scheduleId;
 
         internal void SetScheduleGroup(string scheduleGroup) => _schedule.ScheduleGroup = scheduleGroup;
 
